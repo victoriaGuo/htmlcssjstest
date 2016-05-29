@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>register</title>
+</head>
+<style>
+h3{text-align:center;}
+td{height:40px;}
+.td-l{width:150px;text-align:right;}
+table{width:600px;margin:0 auto;background:#CCC}
+</style>
+<script>
+
+window.onload=function()
+{
+		oTextn=document.getElementById('name');
+		oTextp=document.getElementById('password');
+		oTextE=document.getElementById('E-mail');
+		oTextn.onmouseover=function(){
+			oTextn.focus();
+			}
+		
+}
+function check()
+		{
+			if(oTextn.value=="") {alert("请输入您的用户名!");return false;}
+			if(oTextp.value=="") {alert("请输入您的密码!");return false;}
+			var psw=oTextp.value;
+			if(psw.length<8) {alert("密码长度不够，请重输！");return false;}
+			var aSex=document.getElementsByName('sex');
+			if(aSex[0].checked==false&&aSex[1].checked==false)
+			{alert("性别必须选择！");return false;}
+			var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+                isok= reg.test(oTextE.value);
+				if(!isok)
+				{alert("请输入正确的email地址！");return false;}
+			return ture;
+		}
+
+</script>
+<body>
+
+<h3>用户注册表</h3>
+<form onsubmit="return check()">
+	<table>
+	<tr><td class="td-l">用户名：</td>
+    	<td><input type="text" id="name" name="name" value="" style="width:330px;" />*</td></tr><tr></tr>
+    <tr><td class="td-l">性别：</td>
+    	<td><input type="radio"  name="sex" value="性别"  />男
+   			 <input type="radio"  name="sex" value="性别" />女</td></tr><tr></tr>
+    <tr><td class="td-l">密码：</td>
+    	<td><input type="text" id="password" name="password" value="" style="width:250px;"/>* 至少8个字符</td></tr><tr></tr>
+    <tr><td class="td-l">出生日期：</td>
+    		<td><select name="year" id="year">
+    			<option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option>
+    			<option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option>
+                <option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option>
+    		</select>年
+            <select name="month" id="month">
+            	<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+            </select>月
+             <select name="day" id="day">
+             	<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                <option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option>
+                <option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>
+                <option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option>
+                <option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option>
+                <option value="29">29</option><option value="30">30</option><option value="31">31</option>
+             </select>日</td></tr><tr></tr>
+    <tr><td class="td-l">通信地址：</td>
+    	<td><input type="text" name="address" value="" style="width:330px;"/></td></tr><tr></tr>
+    <tr><td class="td-l">联系电话：</td>
+    	<td><input type="text" name="telephone" value="" style="width:330px;"/></td></tr><tr></tr>
+    <tr><td class="td-l">E-mail：</td>
+    	<td><input type="text" id="E-mail" name="E-mail" value="" style="width:330px;"/></td></tr><tr></tr>
+    <tr><td class="td-l">经常访问的网站：</td>
+    	<td><select name="FVW" id="FVW">
+    					<option value="新浪网">新浪网</option><option value="腾讯网">腾讯网</option><option value="搜狐网">搜狐网</option>
+                        <option value="淘宝网">淘宝网</option><option value="网易">网易</option><option value="优酷网">优酷网</option>
+    			 </select></td></tr><tr></tr>
+    <tr><td class="td-l">个人爱好：</td>
+    	<td><input type="checkbox" name="hobbies" value="读书" />读书
+    		<input type="checkbox" name="hobbies" value="游泳" />游泳
+            <input type="checkbox" name="hobbies" value="跑步" />跑步
+            <input type="checkbox" name="hobbies" value="球类运动" />球类运动
+            <input type="checkbox" name="hobbies" value="旅游" />旅游</td></tr><tr></tr>
+    <tr><td class="td-l">备注：</td>
+    	<td><textarea rows="3" cols="47"></textarea></td></tr><tr></tr>
+    <tr><td></td><td><input type="submit" value="提交" />
+    <input type="reset" value="重置" /> </td></tr>
+    <tr><td></td><td>（有*号的项为必填项）</td></tr>
+    </table>
+    
+</form>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+#div1{width:600px;height:70px;margin:auto 100px;font-size:60px;border-style:solid; border-width:1px; border-color:#000;overflow:hidden;}
+</style>
+<script>
+window.onload=function()
+{
+var color = new Array("red","blue","green","black","turquoise","coral","orange","lime","violet");
+var oDiv1=document.getElementById('div1');
+var msg=oDiv1.innerHTML;
+var len = msg.length;
+var i=0;
+function scroll(){ 
+      oDiv1.innerHTML = msg.substring(i,len)+"       "+msg.substring(0,len);//文本域中输出字符串
+            i = i+1;//字符显示的位置向后移动两个字符
+			 if ( i >= len ) {i = 0;}
+}
+setInterval(scroll,500);
+ 
+setInterval(function(){
+	oDiv1.style.color=color[Math.round(Math.random()*10)%9];
+	},500);
+}
+</script>
+</head>
+<body >
+	<div id='div1'>中南财经政法大学</div>
+</body>
+</html>
