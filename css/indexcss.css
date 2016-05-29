@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+.tr1 .td1 ul {
+			padding:0 20px 0 0;
+			float:right;
+			}
+	
+.tr1 .td1 ul li{
+			float:left;list-style:none;
+			padding:0 10px;
+			text-align:center;
+			}
+.tr1 .td1 ul li a{
+		   color:black;text-decoration:none;
+			}	
+.td1 {
+	text-align: center;
+}
+.网站名称 {
+	font-family: "Comic Sans MS", cursive;
+	font-size: 36px;
+	color: #09F;
+	font-style: italic;
+}
+#td2 h1{text-align:center;font-family: "Comic Sans MS", cursive;}
+

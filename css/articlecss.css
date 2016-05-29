@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+#nav{height:300px;width:100%;}
+#nav span{
+	font-family: "Comic Sans MS", cursive;font-size: 70px;font-weight:bolder;
+	color: #09F;
+	font-style: italic;line-height:300px;margin-left:28px;
+}
+#nav-img{height:300px;width:980px;float:right;}
+#guider{background:#CCCCCC;height:50px;margin:10px auto;}
+#guider ul {
+			padding:0 20px 0 0;
+			float:right;
+			}
+#guider ul li{
+			float:left;list-style:none;
+			padding:0 10px;
+			text-align:center;
+			}
+#guider ul li a{color:black;text-decoration:none;}	
+ul {
+			padding:0 20px 0 0;
+			float:right;
+			}
+#location{background:#CCC;height:50px;line-height:50px;}
+#location span{padding-left:20px;}
+#articles{height:300px;margin:10px auto;}
+.arti{background:#9FF;height:280px;width:400px;float:left;margin:10px 20px;}
+#articles span{background:#09F;display:inline-block;height:30px;width:390px;line-height:30px;margin-top:30px;padding-left:10px;color:#FFF;}
+#articles ul{height:200px;width:350px;}
+
