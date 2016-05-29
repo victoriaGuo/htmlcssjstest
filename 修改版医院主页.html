@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>医院主页</title>
+<style>
+div{margin:0;padding:0;display:block;}
+.nav{padding-left:70px;width:1200px;background:}
+.search{width:100%;height:30px;background:}
+#js-q{height:25px;width:500px;margin:auto 10px auto 400px;float:left;}
+#btn-s{height:30px;}
+.info{height:220px;width:1260px;float:left;background:}
+.summary{height:200px;width:180px;margin:10px auto auto 70px;float:left;}
+.detail{float:left;margin:10px 10px auto 10px;height:200px;width:800px;}
+.address,.telephone,.website{height:25px;font-size:14px;}
+.detail h3{height:20px;}
+.intro {height:50px;font-size:14px;}
+.rules{height:260px;width:1260px;padding-left:70px;margin:20px auto;overflow:hidden;display:block;background:}
+.rules p{font-size:14px;}
+.body{width:100%;height:400px;}
+#guide{width:250px;height:250px;float:left;margin-left:70px;background:#0CC}
+li{font-size:16px;font-color:black;list-style:none;}
+li a{color:black;text-decoration:none;}
+ul li a:hover {  background: #f9f9f9; }
+#more-Dep{width:200px;height:170px;float:left;margin-top:80px;float:left;background:#0FF;display:none;}
+#board{margin-right:60px;margin-top:30px;height:250px;width:400px;float:left;float:right;}
+#board td{width:80px;}
+#board h3{display:inline;}
+.main_foot{text-align:center;width:100%;height:68px;padding:15px 0px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oLi1=document.getElementById('li1');
+	var oDiv2=document.getElementById('more-Dep');
+	
+	var btnlp=document.getElementById('lpage');
+	var btnnp=document.getElementById('npage');
+	
+	var oDiv3=document.getElementById("board");
+		var aTrs=oDiv3.getElementsByTagName('tr');
+		var oPageSpan=document.getElementById("page");
+		
+		var totalPage=3;
+	var timer=null;
+	oDiv2.onmouseover=oLi1.onmouseover=function()
+	{
+		clearTimeout(timer);
+	oDiv2.style.display='block';
+	};
+	oDiv2.onmouseout=oLi1.onmouseout=function()
+	{
+	timer=setTimeout(function(){oDiv2.style.display='none';},500);
+	};
+	
+	btnlp.onclick=function(){
+	lastpage();
+	}
+	btnnp.onclick=function(){
+		nextpage();
+	}
+	function nextpage(){
+		var Page=parseInt(oPageSpan.innerHTML);
+			  if(Page<totalPage)
+			  {
+			   for(var y=1+(Page-1)*4;y<=1+(Page-1)*4+4;y++){
+				aTrs[y].style.display='none';
+				}	
+				for(var x=Page*4+1;x<=Page*4+4&&x<aTrs.length;x++){
+				aTrs[x].style.display='table-row';
+				//alert('1');
+				}
+				oPageSpan.innerHTML=Page+1;
+			  }
+	}
+	function lastpage(){
+			var Page=parseInt(oPageSpan.innerHTML);
+			  if(Page>1)
+			  {
+			   for(var y=1+(Page-1)*4;y<=1+(Page-1)*4+4&&y<aTrs.length;y++){
+				aTrs[y].style.display='none';
+				}	
+				for(var x=(Page-2)*4+1;x<=(Page-2)*4+4&&x<aTrs.length;x++){
+				aTrs[x].style.display='table-row';
+				}
+				oPageSpan.innerHTML=Page-1;
+			  }
+	}
+}
+
+	function redirect(){
+		if(document.getElementById("btn-s")){
+			window.location.href="../3查询 预约 医生界面/查询界面.html";
+		}
+	}
+	
+	
+</script>
+</head>
+
+<body>
+<div class="nav">
+  <p>您好！请 <a href="login.html">登录</a></a> | <a href="login.html">注册</a></p>
+</div>
+<div class="search">
+		<input type="text" name="q" id="js-q" placeholder="请输入疾病名、科室名或医生名">
+  <input type="button"  id="btn-s" value="搜索" onclick=redirect()>
+</div>
+<hr />
+<div class="info">
+	<div class="summary">
+    <img src="../images/index-targeted hospital.jpg">
+    </div>
+    <div class="detail">
+    	<h3>华中科技大学同济医学院附属同济医院</h3>
+        <div class="address">地址：湖北省武汉市解放大道1095号</div>
+    	<div class="telephone">电话：027-83662688</div>
+        <div class="website">官网：http://www.tjh.com.cn/</div>
+        <div class="intro">简介：近年来，同济医院连续四次获得“全国文明单位”称号，医院先后被授予“全国五一劳动奖状”、 “全国职工职业道德建设十佳单位”、 “全国卫生系统先进集体”等光荣称号，并被评为“中国十大名牌医院”。2012年12月，同济医院亚洲首个通过德国ＫＴＱ质量认证。2015年10月8 日，再获KTQ复评认证，康复科成为亚洲首个通过该认证的临床科室。</div>
+    </div>
+</div>
+
+<div class="rules">
+						<h3>预约规则</h3>
+						<p> 1、根据专家出诊信息，提前2天上午8:00开始预约。号源有限，约满为止！取消时限：就诊当天6:30前。</p>
+                        <p> 2、预约实行实名制预约，预约时必须提供患者本人真实姓名及有效证件号。</p>  
+                        <p> 3、预约挂号成功后，手机会收到挂号成功短信，未收到短信则表示预约失败。如需取消预约，请于就诊时间前取消订单，否则预约挂号费不予退回。</p>
+                        <p> 4、患者凭预约时预留的有效证件及就诊卡到医院自助设备或预约取号处取号约。</p>
+                        <p> 5、请持挂号单及对应的就诊卡和病历，至就诊科室刷卡就诊。</p>
+                        <p> 6、超过取号时间，视为患者爽约。</p>
+                        <p> 7、过号请听从科室安排重新排队就诊。</p>
+</div>
+<div class="body" style=" background-image:url(../images/clouds1.gif); background-repeat:no-repeat;background-size:100%">
+	<div id="guide">
+	<ul>
+    	
+    	<li><a href="../3查询 预约 医生界面/查询界面.html">内科</a><a href="#"></a></li><li><a href="../3查询 预约 医生界面/查询界面.html">外科</a><a href="#"></a></li><li><a href="../3查询 预约 医生界面/查询界面.html">妇产科</a><a href="#"></a></li>
+        <li><a href="../3查询 预约 医生界面/查询界面.html">儿科</a><a href="#"></a></li><li><a href="../3查询 预约 医生界面/查询界面.html">感染科</a><a href="#"></a></li><li><a href="../3查询 预约 医生界面/查询界面.html">中医科</a><a href="#"></a></li>
+        <li><a href="../3查询 预约 医生界面/查询界面.html">神经内科</a><a href="#"></a></li><li><a href="../3查询 预约 医生界面/查询界面.html">急诊科</a><a href="#"></a></li><li><a href="../3查询 预约 医生界面/查询界面.html">肿瘤科</a><a href="#"></a></li>
+        
+        <li><a href="../3查询 预约 医生界面/查询界面.html">耳鼻咽喉科</a><a href="#"></a></li><li><a href="../3查询 预约 医生界面/查询界面.html">眼科</a><a href="#"></a></li><li id="li1"><a href="../3查询 预约 医生界面/查询界面.html">更多科室</a><a href="#"></a></li>
+      </ul>
+      </div>
+        <div id="more-Dep">
+			<ul>
+				
+					<li><a href="#">皮肤病科</a></li><li><a href="#">口腔科</a></li><li><a href="#">过敏反应科</a></li>
+    				<li><a href="#">放射科</a></li><li><a href="#">疼痛门诊</a></li><li><a href="#">康复医学科</a></li>
+    				<li><a href="#">核医学科</a></li><li><a href="#">临床营养科</a></li>
+				
+			<ul>
+		</div>
+        
+	<div id="board">
+	<h3 >停诊公告栏       </h3><input type="button" value="上一页" id="lpage" >
+    <span id="page">1</span>/<span id="totalpage">总页数</span>
+    <input type="button" value="下一页" id="npage" >
+    <table cellpadding="5px" cellspacing="0px" border="1px" style="table-layout:fixed;" >
+    	<thead>
+        	<tr>
+            	<td>科室</td><td>医生</td><td>停诊时间</td>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr style="display:table-row;">
+            	<td>眼科</td><td>项楠</td><td>04-18 上午</td>
+            </tr>
+            <tr style="display:table-row;">
+            	<td>眼科</td><td>李斌</td><td>04-14 上午</td>
+            </tr>
+            <tr style="display:table-row;">
+            	<td>眼科</td><td>杨红</td><td>04-15 上午</td>
+            </tr>
+            <tr style="display:table-row;">
+            	<td>耳鼻咽喉科</td><td>李涛</td><td>04-14 上午</td>
+            </tr>
+			 <tr style="display:none;">
+            	<td>耳鼻咽喉科</td><td>李涛2</td><td>04-14 上午</td>
+            </tr>
+			 <tr style="display:none;">
+            	<td>耳鼻咽喉科</td><td>李涛3</td><td>04-14 上午</td>
+            </tr>
+			 <tr style="display:none;">
+            	<td>耳鼻咽喉科</td><td>李涛4</td><td>04-14 上午</td>
+            </tr>
+			 <tr style="display:none;">
+            	<td>耳鼻咽喉科</td><td>李涛5</td><td>04-14 上午</td>
+            </tr>
+			 <tr style="display:none;">
+            	<td>耳鼻咽喉科</td><td>李涛6</td><td>04-14 上午</td>
+            </tr>
+			 <tr style="display:none;">
+            	<td>耳鼻咽喉科</td><td>李涛7</td><td>04-14 上午</td>
+            </tr>
+        </tbody>
+    </table>
+	</div>
+</div>
+<div class="main_foot" style="background-color: #F2F2F2"> 
+			<span>
+			<a href="#">联系我们</a>
+			<br>
+			All rights(C)2013-2016 Reserved
+			</span>
+			</div>
+</body>
+</html>
